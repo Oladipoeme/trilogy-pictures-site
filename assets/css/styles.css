@@ -202,4 +202,17 @@ html{
     filter: drop-shadow(0 0 8px rgba(255,255,255,0.28))
             drop-shadow(0 0 16px rgba(255,255,255,0.12));
   }
-  
+  /* ---------- Mobile header layout fixes (logo only on phones) ---------- */
+@media (max-width: 639.98px) {
+  .centered-logo{
+    position: static;
+    left: auto; top: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+  .header-logo{
+    height: 28px; /* tidy size on small screens */
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.22))
+            drop-shadow(0 0 10px rgba(255,255,255,0.10));
+  }
+}
