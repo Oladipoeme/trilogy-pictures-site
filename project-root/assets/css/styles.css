@@ -1,0 +1,205 @@
+/* =========================================================
+   Base + Global page fade-in (LONGER)
+========================================================= */
+html{
+    font-family: Manrope, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:#000;
+  }
+  body{
+    opacity:0;
+    transition: opacity 800ms ease; /* longer page fade-in */
+  }
+  body.loaded{ opacity:1; }
+  
+  /* =========================================================
+     Timing variables (landing)
+  ========================================================= */
+  :root{
+    --intro-fade:    1400ms; /* title fade-in */
+    --intro-hold:     900ms; /* how long title stays before motif */
+    --blackout-fade: 900ms; /* LONGER fade to/from black */
+    --motif-fade:    900ms; /* motif fade/scale in */
+  }
+  
+  /* =========================================================
+     Geometry from PNG (used by landing + Command Center)
+  ========================================================= */
+  :root{
+    --bar1-center: 25.6348%;
+    --bar2-center: 36.8164%;
+    --bar3-center: 47.8516%;
+    --bar-height:   4.69%;
+  }
+  
+  /* =========================================================
+     Landing: intro title
+  ========================================================= */
+  #titleStage.loaded{
+    opacity:1;
+    transform:translateY(0);
+    transition-duration: var(--intro-fade);
+  }
+  #titleStage.hide{
+    opacity:0;
+    transition: opacity 700ms ease;
+  }
+  
+  /* =========================================================
+     Global blackout (landing + inner pages)
+  ========================================================= */
+  #blackout{
+    position: fixed; inset: 0;
+    background:#000;
+    opacity:0; pointer-events:none;
+    transition: opacity var(--blackout-fade) ease; /* 1.2s */
+    z-index:70;
+  }
+  #blackout.on{ opacity:1; }
+  
+  /* =========================================================
+     Landing: center motif stage
+  ========================================================= */
+  #centerStage.show{
+    opacity:1;
+    pointer-events:auto;
+    transition: opacity var(--motif-fade) ease;
+  }
+  #motifCenter{
+    opacity:0;
+    transform: scale(0.97);
+  }
+  #motifCenter.show{
+    opacity:1;
+    transform: scale(1);
+    transition: opacity var(--motif-fade) ease, transform var(--motif-fade) ease;
+  }
+  
+  /* =========================================================
+     Landing: hover labels on bars (SCOPED)
+  ========================================================= */
+  #menuOverlay{ position:absolute; inset:0; }
+  #menuOverlay .bar-hit{
+    position:absolute; left:0; right:0;
+    height: var(--bar-height);
+    transform: translateY(-50%);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; outline:none; pointer-events:auto;
+  }
+  #menuOverlay .bar1{ top: var(--bar1-center); }
+  #menuOverlay .bar2{ top: var(--bar2-center); }
+  #menuOverlay .bar3{ top: var(--bar3-center); }
+  
+  #menuOverlay .bar-label{
+    font-weight:800;
+    color:#000;
+    font-size:1.05rem;
+    letter-spacing:.02em;
+    padding:.2rem .65rem;
+    border-bottom:1px solid rgba(0,0,0,.2);
+    opacity:0;
+    transform: translateY(14px);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  #menuOverlay .bar-hit:hover .bar-label,
+  #menuOverlay .bar-hit:focus-visible .bar-label{
+    opacity:1;
+    transform: translateY(0);
+  }
+  
+  /* =========================================================
+     Reduced motion (landing)
+  ========================================================= */
+  @media (prefers-reduced-motion: reduce){
+    body{ transition:none !important; opacity:1 !important; }
+    #titleStage, #centerStage, #motifCenter { transition:none !important; }
+    #titleStage{ opacity:1 !important; transform:none !important; }
+    #centerStage{ opacity:1 !important; pointer-events:auto !important; }
+    #motifCenter{ opacity:1 !important; transform:none !important; }
+    #blackout{ transition:none !important; opacity:1 !important; }
+    #menuOverlay .bar-label{ opacity:1 !important; transform:none !important; transition:none !important; }
+  }
+  
+  /* =========================================================
+     Command Center overlay (inner pages)
+     — reuses the same bar geometry + hover labels
+  ========================================================= */
+  .cc-overlay{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none;
+    transition: opacity 350ms ease;
+    z-index:60;
+  }
+  .cc-overlay.show{
+    opacity:1; pointer-events:auto;
+  }
+  .cc-panel img{
+    display:block; width:100%; height:auto;
+  }
+  
+  /* The inner wrapper prevents clicks inside panel from closing the overlay */
+  .cc-panel-inner{ position: relative; }
+  
+  /* Bars inside the Command Center (SCOPED) */
+  .cc-bars{ position:absolute; inset:0; }
+  .cc-bars .bar-hit{
+    position:absolute; left:0; right:0;
+    height: var(--bar-height);
+    transform: translateY(-50%);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; outline:none; pointer-events:auto;
+  }
+  .cc-bars .bar1{ top: var(--bar1-center); }
+  .cc-bars .bar2{ top: var(--bar2-center); }
+  .cc-bars .bar3{ top: var(--bar3-center); }
+  
+  .cc-bars .bar-label{
+    font-weight:800; color:#000; background:transparent;
+    padding:.2rem .65rem;
+    border-bottom:1px solid rgba(0,0,0,.25);
+    opacity:0; transform: translateY(14px);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .cc-bars .bar-hit:hover .bar-label,
+  .cc-bars .bar-hit:focus-visible .bar-label{
+    opacity:1; transform: translateY(0);
+  }
+  
+  /* Optional: reduced motion parity for CC */
+  @media (prefers-reduced-motion: reduce){
+    .cc-overlay{ transition:none !important; opacity:1 !important; }
+    .cc-bars .bar-label{ opacity:1 !important; transform:none !important; transition:none !important; }
+  }
+  
+  /* =========================================================
+     Header helpers (inner pages)
+  ========================================================= */
+  .centered-logo{
+    position:absolute;
+    left:50%; top:50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Close button hover (overlay) */
+  #ccClose{
+    z-index: 9999;
+    cursor: pointer;
+    transition: color 200ms ease;
+  }
+  #ccClose svg{
+    transition: transform 200ms ease;
+  }
+  #ccClose:hover svg{ transform: scale(0.9); }
+  #ccClose:active svg{ transform: scale(0.85) translateY(1px); }
+  
+  /* =========================================================
+     Subtle, constant glow for header logo (PNG with alpha)
+  ========================================================= */
+  .header-logo{
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.28))
+            drop-shadow(0 0 16px rgba(255,255,255,0.12));
+  }
+  

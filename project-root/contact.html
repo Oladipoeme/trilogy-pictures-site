@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Trilogy Pictures</title>
+  <meta name="description" content="Contact Trilogy Pictures" />
+  <meta name="theme-color" content="#000000" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Header + Command Center trigger -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between relative">
+      <!-- Left -->
+      <span class="whitespace-nowrap text-sm sm:text-base font-medium">Trilogy Pictures</span>
+
+      <!-- Center -->
+      <div class="centered-logo">
+        <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
+          <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="h-8 w-auto header-logo" />
+        </button>
+      </div>
+
+      <!-- Right -->
+      <span class="whitespace-nowrap text-sm sm:text-base text-white/70">African Stories. Global Audiences.</span>
+    </div>
+  </header>
+
+  <!-- Blackout for fade transitions -->
+  <div id="blackout"></div>
+
+  <!-- Command Center overlay -->
+  <div id="commandCenter" class="cc-overlay" aria-hidden="true">
+    <div class="cc-panel relative w-full max-w-[700px]" role="dialog" aria-modal="true">
+      <div class="cc-panel-inner">
+        <!-- Close button -->
+        <button id="ccClose" class="absolute top-4 right-4 text-white/70 hover:text-white focus:outline-none" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <!-- Motif -->
+        <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="block w-full h-auto" />
+
+        <!-- Hover/tap bars -->
+        <nav class="cc-bars" aria-label="Command Center">
+          <a href="projects.html" class="bar-hit bar1"><span class="bar-label">Projects</span></a>
+          <a href="about.html"    class="bar-hit bar2"><span class="bar-label">About</span></a>
+          <a href="contact.html"  class="bar-hit bar3"><span class="bar-label">Contact</span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 py-16 space-y-10">
+    <h1 class="text-4xl font-bold mb-6">Contact</h1>
+    <p class="text-white/80 mb-10">
+      Interested in collaborating or learning more? Drop us a message using the form below.
+    </p>
+
+    <form class="grid gap-6 max-w-xl" aria-label="Contact form">
+      <label class="grid gap-2">
+        <span class="text-sm text-white/70">Your name</span>
+        <input type="text" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-white/40" placeholder="Your Name" />
+      </label>
+      <label class="grid gap-2">
+        <span class="text-sm text-white/70">Your email</span>
+        <input type="email" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-white/40" placeholder="you@example.com" />
+      </label>
+      <label class="grid gap-2">
+        <span class="text-sm text-white/70">Message</span>
+        <textarea rows="5" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-white/40" placeholder="Tell us about your request"></textarea>
+      </label>
+      <button type="submit" class="inline-flex items-center gap-2 bg-white text-black hover:bg-white/90 rounded-full px-5 py-2.5 text-sm font-semibold">
+        Send Message
+      </button>
+      <p class="text-xs text-white/50">This form is a placeholder. Connect with Formspree or another email handler later.</p>
+    </form>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 text-white/50 text-sm">
+      © <span id="year"></span> Trilogy Pictures. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+  <script>
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

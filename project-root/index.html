@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trilogy Pictures</title>
+  <meta name="description" content="Trilogy Pictures — African stories. Global audiences." />
+  <meta name="theme-color" content="#000000" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-black text-white antialiased">
+
+  <!-- Full viewport container -->
+  <main class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+    <!-- Intro: title & tagline -->
+    <div id="titleStage" class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 translate-y-3 transition-all ease-out">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Trilogy Pictures</h1>
+      <p class="mt-4 text-base sm:text-lg text-white/80">African Stories. Global Audiences.</p>
+    </div>
+
+    <!-- Blackout for transition -->
+    <div id="blackout"></div>
+
+    <!-- Motif stage -->
+    <div id="centerStage" class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity ease-out">
+      <div id="logoBox" class="relative w-full max-w-[720px] mx-auto">
+        <!-- Exact motif PNG -->
+        <img id="motifCenter" src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="block w-full h-auto opacity-0 scale-95 transition-all ease-out" />
+
+        <!-- Bar hit zones -->
+        <nav id="menuOverlay" aria-label="Primary" class="opacity-100">
+          <a href="projects.html" class="bar-hit bar1"><span class="bar-label">Projects</span></a>
+          <a href="about.html"    class="bar-hit bar2"><span class="bar-label">About</span></a>
+          <a href="contact.html"  class="bar-hit bar3"><span class="bar-label">Contact</span></a>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/landing.js"></script>
+</body>
+</html>
