@@ -15,23 +15,28 @@
 <body class="bg-black text-white antialiased">
   <!-- Header + Command Center trigger -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between relative">
-      <!-- Left -->
-     <span class="site-label whitespace-nowrap text-sm sm:text-base font-medium">
-  Trilogy Pictures
-</span>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2
+              [grid-template-columns:1fr_auto_1fr]">
+    <!-- Left: company name -->
+    <span class="site-label text-left leading-tight truncate">
+      Trilogy Pictures
+    </span>
 
-<div class="centered-logo">
-  <button id="ccTrigger" aria-controls="commandCenter" aria-expanded="false">
-    <img src="assets/img/logo-trilogy-pictures.png" class="h-8 w-auto header-logo" alt="Trilogy Pictures motif" />
-  </button>
-</div>
-<span class="site-tagline whitespace-nowrap text-sm sm:text-base text-white/70">
-  African Stories. Global Audiences.
-</span>
-
+    <!-- Center: logo (always centered by the grid) -->
+    <div>
+      <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
+        <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif"
+             class="header-logo w-auto" />
+      </button>
     </div>
-  </header>
+
+    <!-- Right: tagline (wraps to two lines if needed) -->
+    <span class="site-tagline text-right leading-tight">
+      African Stories. Global Audiences.
+    </span>
+  </div>
+</header>
+
 
   <!-- Blackout for fade transitions -->
   <div id="blackout"></div>
