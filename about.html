@@ -10,34 +10,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
 </head>
 <body class="bg-black text-white antialiased">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2
-              [grid-template-columns:1fr_auto_1fr]">
-    <!-- Left: company name -->
-    <span class="site-label text-left leading-tight truncate">
-      Trilogy Pictures
-    </span>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2 [grid-template-columns:1fr_auto_1fr]">
+      <span class="site-label text-left leading-tight truncate">Trilogy Pictures</span>
 
-    <!-- Center: logo (always centered by the grid) -->
-    <div>
-      <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
-        <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif"
-             class="header-logo w-auto" />
-      </button>
+      <div class="header-logo-wrap">
+        <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
+          <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="header-logo w-auto" />
+        </button>
+      </div>
+
+      <span class="site-tagline text-right leading-tight">African Stories. Global Audiences.</span>
     </div>
-
-    <!-- Right: tagline (wraps to two lines if needed) -->
-    <span class="site-tagline text-right leading-tight">
-      African Stories. Global Audiences.
-    </span>
-  </div>
-</header>
-
+  </header>
 
   <!-- Blackout for fade transitions -->
   <div id="blackout"></div>
@@ -46,17 +36,14 @@
   <div id="commandCenter" class="cc-overlay" aria-hidden="true">
     <div class="cc-panel relative w-full max-w-[700px]" role="dialog" aria-modal="true">
       <div class="cc-panel-inner">
-        <!-- Close button -->
         <button id="ccClose" class="absolute top-4 right-4 text-white/70 hover:text-white focus:outline-none" aria-label="Close menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
 
-        <!-- Motif -->
         <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="block w-full h-auto" />
 
-        <!-- Hover/tap bars -->
         <nav class="cc-bars" aria-label="Command Center">
           <a href="projects.html" class="bar-hit bar1"><span class="bar-label">Projects</span></a>
           <a href="about.html"    class="bar-hit bar2"><span class="bar-label">About</span></a>
@@ -79,24 +66,23 @@
     <section>
       <h2 class="text-2xl font-semibold mb-8">Team</h2>
       <div class="grid md:grid-cols-3 gap-10">
-        <!-- Placeholder cards for team members -->
         <article class="space-y-4">
-          <div class="aspect-square bg-white/10 rounded-xl flex items-center justify-center">
-            <img src="./assets/img/tobi-bamtefa.jpg"/>
+          <div class="aspect-square bg-white/10 rounded-xl overflow-hidden">
+            <img src="./assets/img/tobi-bamtefa.jpg" alt="Tobi Bamtefa" class="w-full h-full object-cover"/>
           </div>
           <h3 class="text-lg font-semibold">Tobi Bamtefa</h3>
           <p class="text-white/70 text-sm">Tobi Bamtefa is a Nigerian-British actor with extensive theatre, film, and television credits. On screen, he has appeared in Tin Star (Sky), Feel Good, The Witcher (Netflix), Invasion (AppleTV), and Mayor of Kingstown. His film work includes Lost in London, BAFTA-nominated Responsible Child, Horrible Histories: The Movie, and How to Build a Girl. On stage, Tobi has performed at the National Theatre in Network and Three Sisters, starred in The Last King of Scotland at Sheffield Crucible, and toured internationally with Inua Ellams’ Barbershop Chronicles.</p>
         </article>
         <article class="space-y-4">
-          <div class="aspect-square bg-white/10 rounded-xl flex items-center justify-center">
-            <img src="./assets/img/ladi-emeruwa.jpg"/>
+          <div class="aspect-square bg-white/10 rounded-xl overflow-hidden">
+            <img src="./assets/img/ladi-emeruwa.jpg" alt="Ladi Emeruwa" class="w-full h-full object-cover"/>
           </div>
           <h3 class="text-lg font-semibold">Ladi Emeruwa</h3>
           <p class="text-white/70 text-sm">Ladi Emeruwa is a London-based Nigerian actor and producer. He played the title role in Shakespeare’s Globe’s landmark world tour of Hamlet, performing in nearly every country worldwide. His screen credits include Berlin Station (Epix), Humans (Channel 4/AMC), Into the Badlands (AMC/Amazon), and Riviera (Sky).</p>
         </article>
         <article class="space-y-4">
-          <div class="aspect-square bg-white/10 rounded-xl flex items-center justify-center">
-            <img src="./assets/img/africa-ukoh.jpg"/>
+          <div class="aspect-square bg-white/10 rounded-xl overflow-hidden">
+            <img src="./assets/img/africa-ukoh.jpg" alt="Africa Ukoh" class="w-full h-full object-cover"/>
           </div>
           <h3 class="text-lg font-semibold">Africa Ukoh</h3>
           <p class="text-white/70 text-sm">Africa is a screenwriter, playwright, and theatre director whose work blends a distinctly African voice with global appeal. He co-wrote Green White Green and The Lost Okoroshi, both of which premiered at TIFF and screened at Berlinale and BFI London Film Festival. His play 54 Silhouettes has been produced by the BBC, staged internationally, and won Best International Show at the United Solo Theatre Festival in New York.</p>
@@ -112,9 +98,6 @@
   </footer>
 
   <script src="assets/js/site.js"></script>
-  <script>
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
+  <script>const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();</script>
 </body>
 </html>

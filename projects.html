@@ -10,18 +10,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
 </head>
 <body class="bg-black text-white antialiased">
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2 [grid-template-columns:1fr_auto_1fr]">
       <span class="site-label text-left leading-tight truncate">Trilogy Pictures</span>
-      <div>
+
+      <!-- NOTE: added 'header-logo-wrap' for mobile right-align -->
+      <div class="header-logo-wrap">
         <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
           <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="header-logo w-auto" />
         </button>
       </div>
+
       <span class="site-tagline text-right leading-tight">African Stories. Global Audiences.</span>
     </div>
   </header>
@@ -50,12 +53,12 @@
     </div>
   </div>
 
-  <!-- Page title (in column) -->
+  <!-- Page title -->
   <div class="mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-6">
     <h1 class="text-3xl sm:text-4xl font-semibold">Projects</h1>
   </div>
 
-  <!-- ===== Project: FFND (full-bleed image, text below) ===== -->
+  <!-- FFND (full-bleed image + details) -->
   <figure class="full-bleed">
     <div class="aspect-[16/10] md:aspect-[21/9] relative overflow-hidden">
       <img src="assets/img/ffnd-poster.jpg" alt="Founding Fathers Never Die key art"
@@ -78,12 +81,11 @@
     </div>
   </section>
 
-  <!-- Divider -->
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
     <div class="h-px bg-white/10 my-6 md:my-10"></div>
   </div>
 
-  <!-- ===== Project: MAGA ===== -->
+  <!-- MAGA -->
   <figure class="full-bleed">
     <div class="aspect-[16/10] md:aspect-[21/9] relative overflow-hidden">
       <img src="assets/img/maga-poster.jpg" alt="Maga key art"

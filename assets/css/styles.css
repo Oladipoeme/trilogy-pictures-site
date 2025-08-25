@@ -62,12 +62,6 @@ body.loaded{ opacity:1; }
   }
 }
 
-/* Mobile: allow tagline to wrap; keep left label one line */
-@media (max-width:639.98px){
-  .site-tagline{ white-space: normal; line-height: 1.25; }
-  .site-label{ white-space: nowrap; }
-}
-
 /* =========================================================
    Landing: intro title
 ========================================================= */
@@ -232,4 +226,27 @@ body.loaded{ opacity:1; }
   margin-left: -50vw;
   margin-right: -50vw;
   background:#000; /* keeps edges clean on iOS bounce */
+}
+
+/* =========================================================
+   MOBILE HEADER MODE
+   - Hide tagline
+   - Use 2-column grid: [left label][right logo]
+========================================================= */
+@media (max-width: 639.98px){
+  .site-tagline{ display:none; }
+
+  /* The header’s inner container switches to 2 columns */
+  header .mx-auto{
+    display: grid;
+    grid-template-columns: 1fr auto !important;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Make sure the logo wrapper hugs the right edge */
+  .header-logo-wrap{ justify-self: end; }
+
+  /* Keep company name to one line; shrink slightly if needed */
+  .site-label{ white-space: nowrap; font-size: 0.9rem; }
 }
