@@ -216,3 +216,26 @@ html{
             drop-shadow(0 0 10px rgba(255,255,255,0.10));
   }
 }
+/* --- Mobile layout with all three elements scaled --- */
+@media (max-width: 639.98px) {
+  .site-label,
+  .site-tagline {
+    display: inline !important; /* override hidden */
+    font-size: 0.7rem; /* ~11.2px */
+    max-width: 30%; /* prevent overflow */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .mx-auto.max-w-6xl > div {
+    justify-content: space-between; /* distribute elements */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .centered-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
