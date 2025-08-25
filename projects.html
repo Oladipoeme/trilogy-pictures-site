@@ -10,33 +10,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 </head>
 <body class="bg-black text-white antialiased">
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2
-              [grid-template-columns:1fr_auto_1fr]">
-    <!-- Left: company name -->
-    <span class="site-label text-left leading-tight truncate">
-      Trilogy Pictures
-    </span>
-
-    <!-- Center: logo (always centered by the grid) -->
-    <div>
-      <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
-        <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif"
-             class="header-logo w-auto" />
-      </button>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 min-h-[4.25rem] py-2 grid items-center gap-2 [grid-template-columns:1fr_auto_1fr]">
+      <span class="site-label text-left leading-tight truncate">Trilogy Pictures</span>
+      <div>
+        <button id="ccTrigger" class="focus:outline-none" aria-controls="commandCenter" aria-expanded="false">
+          <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="header-logo w-auto" />
+        </button>
+      </div>
+      <span class="site-tagline text-right leading-tight">African Stories. Global Audiences.</span>
     </div>
-
-    <!-- Right: tagline (wraps to two lines if needed) -->
-    <span class="site-tagline text-right leading-tight">
-      African Stories. Global Audiences.
-    </span>
-  </div>
-</header>
-
+  </header>
 
   <!-- Fade-to-black layer -->
   <div id="blackout"></div>
@@ -44,19 +32,15 @@
   <!-- Command Center overlay -->
   <div id="commandCenter" class="cc-overlay" aria-hidden="true">
     <div class="cc-panel relative w-full max-w-[700px]" role="dialog" aria-modal="true">
-      <!-- inner wrapper to stop bubbling so outside clicks close -->
       <div class="cc-panel-inner">
-        <!-- Close button -->
         <button id="ccClose" class="absolute top-4 right-4 text-white/70 hover:text-white focus:outline-none" aria-label="Close menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
 
-        <!-- Motif -->
         <img src="assets/img/logo-trilogy-pictures.png" alt="Trilogy Pictures motif" class="block w-full h-auto" />
 
-        <!-- Hover/tap bars -->
         <nav class="cc-bars" aria-label="Command Center">
           <a href="projects.html" class="bar-hit bar1"><span class="bar-label">Projects</span></a>
           <a href="about.html"    class="bar-hit bar2"><span class="bar-label">About</span></a>
@@ -66,48 +50,63 @@
     </div>
   </div>
 
-  <!-- Main -->
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 py-16">
-    <h1 class="text-3xl sm:text-4xl font-semibold mb-10">Projects</h1>
+  <!-- Page title (in column) -->
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-6">
+    <h1 class="text-3xl sm:text-4xl font-semibold">Projects</h1>
+  </div>
 
-    <!-- FFND -->
-    <article class="grid md:grid-cols-2 gap-10 md:gap-14 items-start py-10 border-b border-white/10">
-      <div class="aspect-[16/10] rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center">
-        <div class="text-center px-6">
-          <img src="./assets/img/ffnd-poster.jpg"/>
-        </div>
-      </div>
-      <div class="space-y-4">
+  <!-- ===== Project: FFND (full-bleed image, text below) ===== -->
+  <figure class="full-bleed">
+    <div class="aspect-[16/10] md:aspect-[21/9] relative overflow-hidden">
+      <img src="assets/img/ffnd-poster.jpg" alt="Founding Fathers Never Die key art"
+           class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </figure>
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-8 md:py-12">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-7 space-y-4">
         <h2 class="text-xl sm:text-2xl font-semibold">FOUNDING FATHERS NEVER DIE</h2>
         <p class="text-white/80">An ambitious heir on the cusp of taking control of a Nigerian banking empire becomes the target of a dark ritual to maintain the status quo.</p>
-        <ul class="text-white/70 text-sm list-disc ml-5">
+      </div>
+      <div class="md:col-span-5">
+        <ul class="text-white/70 text-sm list-disc ml-5 space-y-1.5">
           <li>Status: In development</li>
           <li>Format: Feature film</li>
           <li>Tone: Elevated psychological horror</li>
         </ul>
       </div>
-    </article>
+    </div>
+  </section>
 
-    <!-- MAGA -->
-    <article class="grid md:grid-cols-2 gap-10 md:gap-14 items-start py-10">
-      <div class="order-2 md:order-1 space-y-4">
+  <!-- Divider -->
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="h-px bg-white/10 my-6 md:my-10"></div>
+  </div>
+
+  <!-- ===== Project: MAGA ===== -->
+  <figure class="full-bleed">
+    <div class="aspect-[16/10] md:aspect-[21/9] relative overflow-hidden">
+      <img src="assets/img/maga-poster.jpg" alt="Maga key art"
+           class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </figure>
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-8 md:py-12">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-7 space-y-4">
         <h2 class="text-xl sm:text-2xl font-semibold">MAGA</h2>
         <p class="text-white/80">When a reformed fraudster is dragged back into the criminal underworld by a menacing figure from his past, he finds himself caught in the crossfire between an ambitious cop and a crime boss who wants the money she has already killed for.</p>
-        <ul class="text-white/70 text-sm list-disc ml-5">
+      </div>
+      <div class="md:col-span-5">
+        <ul class="text-white/70 text-sm list-disc ml-5 space-y-1.5">
           <li>Status: In development</li>
           <li>Format: Limited series</li>
           <li>Tone: Prestige drama / thriller</li>
         </ul>
       </div>
-      <div class="order-1 md:order-2 aspect-[16/10] rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center">
-        <div class="text-center px-6">
-            <img src="./assets/img/maga-poster.jpg"/>
-        </div>
-      </div>
-    </article>
-  </main>
+    </div>
+  </section>
 
-  <footer class="border-t border-white/10">
+  <footer class="border-t border-white/10 mt-8">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 text-white/50 text-sm">
       © <span id="year"></span> Trilogy Pictures. All rights reserved.
     </div>

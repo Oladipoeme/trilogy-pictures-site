@@ -39,7 +39,6 @@ body.loaded{ opacity:1; }
   --logo-h: 32px; /* default mobile logo height */
 }
 
-/* Text + logo sizing tied together; grid handles centering */
 .site-label,
 .site-tagline{
   font-weight: 600;
@@ -63,9 +62,9 @@ body.loaded{ opacity:1; }
   }
 }
 
-/* Mobile: allow tagline to wrap; keep left label to one line */
+/* Mobile: allow tagline to wrap; keep left label one line */
 @media (max-width:639.98px){
-  .site-tagline{ white-space: normal; }
+  .site-tagline{ white-space: normal; line-height: 1.25; }
   .site-label{ white-space: nowrap; }
 }
 
@@ -145,19 +144,6 @@ body.loaded{ opacity:1; }
 }
 
 /* =========================================================
-   Reduced motion (landing)
-========================================================= */
-@media (prefers-reduced-motion: reduce){
-  body{ transition:none !important; opacity:1 !important; }
-  #titleStage, #centerStage, #motifCenter { transition:none !important; }
-  #titleStage{ opacity:1 !important; transform:none !important; }
-  #centerStage{ opacity:1 !important; pointer-events:auto !important; }
-  #motifCenter{ opacity:1 !important; transform:none !important; }
-  #blackout{ transition:none !important; opacity:1 !important; }
-  #menuOverlay .bar-label{ opacity:1 !important; transform:none !important; transition:none !important; }
-}
-
-/* =========================================================
    Command Center overlay (inner pages)
 ========================================================= */
 .cc-overlay{
@@ -177,7 +163,7 @@ body.loaded{ opacity:1; }
   display:block; width:100%; height:auto;
 }
 
-/* The inner wrapper prevents clicks inside panel from closing the overlay */
+/* Prevent clicks inside the panel from closing the overlay */
 .cc-panel-inner{ position: relative; }
 
 /* Bars inside the Command Center (SCOPED) */
@@ -205,11 +191,6 @@ body.loaded{ opacity:1; }
   opacity:1; transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce){
-  .cc-overlay{ transition:none !important; opacity:1 !important; }
-  .cc-bars .bar-label{ opacity:1 !important; transform:none !important; transition:none !important; }
-}
-
 /* =========================================================
    Close button hover (overlay)
 ========================================================= */
@@ -224,15 +205,31 @@ body.loaded{ opacity:1; }
 #ccClose:hover svg{ transform: scale(0.9); }
 #ccClose:active svg{ transform: scale(0.85) translateY(1px); }
 
-/* Tagline responsive behavior */
-.site-tagline {
-  white-space: nowrap; /* Default: keep in one line for desktop */
+/* =========================================================
+   Reduced motion
+========================================================= */
+@media (prefers-reduced-motion: reduce){
+  body{ transition:none !important; opacity:1 !important; }
+  #titleStage, #centerStage, #motifCenter { transition:none !important; }
+  #titleStage{ opacity:1 !important; transform:none !important; }
+  #centerStage{ opacity:1 !important; pointer-events:auto !important; }
+  #motifCenter{ opacity:1 !important; transform:none !important; }
+  #blackout{ transition:none !important; opacity:1 !important; }
+  #menuOverlay .bar-label,
+  .cc-bars .bar-label{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .cc-overlay{ transition:none !important; opacity:1 !important; }
 }
 
-@media (max-width: 640px) {
-  .site-tagline {
-    display: block;            /* force block layout */
-    text-align: right;         /* preserve alignment */
-    line-height: 1.3;          /* tighter spacing for two lines */
-  }
+/* =========================================================
+   Full-bleed media utility (Projects page)
+   Makes sections span the full viewport width
+========================================================= */
+.full-bleed{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background:#000; /* keeps edges clean on iOS bounce */
 }
